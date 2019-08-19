@@ -1,0 +1,28 @@
+server:
+  port: 5000
+  tomcat:
+    uri-encoding: UTF-8
+
+spring:
+  application:
+    name: admin-server
+  security:
+    user:
+      name: "root"
+      password: "123456"
+
+eureka:
+  instance:
+    health-check-url-path: /actuator/health
+  client:
+    service-url:
+      defaultZone: http://@eureka-hostname@:@eureka-port@/eureka/,http://localhost2:2001/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
